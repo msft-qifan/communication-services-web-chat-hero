@@ -43,6 +43,6 @@ You also need to update the values of **ResourceConnectionString** and **BotAcsI
 
 The echo bot is located in folder `./Chat/EchoBot` which has a triggered using a keyword. To publish the bot, you can right click on the `EchoBot` project in VS and hit the publish button like below:
 
-![VS](./Media/PublishBot.png)
+![VS](./Media/PublishBot.PNG)
 
 You can also find the `Configuration` of the application from [acs-chat-bot-demo | Configuration](https://ms.portal.azure.com/#@prdtrs01.onmicrosoft.com/resource/subscriptions/ed463725-1c38-43fc-bd8b-cac509b41e96/resourceGroups/acs-chat-bot-demo/providers/Microsoft.Web/sites/acs-chat-bot-demo/configuration).
