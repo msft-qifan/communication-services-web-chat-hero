@@ -17,6 +17,7 @@ import { User } from './reducers/ContosoClientReducers';
 import { State } from './reducers/index';
 import { ClientChatMessage } from './reducers/MessagesReducer';
 import {
+  BOT,
   compareMessages,
   convertToClientChatMessage,
   createNewClientChatMessage,
@@ -529,6 +530,40 @@ const updateThreadTopicName = async (
   updateThreadTopicNameHelper(chatThreadClient, topicName, setIsSavingTopicName);
 };
 
+// Bot member management
+const addBotToThread = () => async (dispatch: Dispatch, getState: () => State) => {
+  try {
+    let state: State = getState();
+    let threadId = state.thread.threadId;
+
+    let botId = await fetch('/bot', { method: 'GET' });
+    setEmoji(await botId.text(), BOT);
+
+    let options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    };
+
+    await fetch('/bot/' + threadId, options);
+  } catch (error) {
+    console.error('Failed to add the bot the thread, Error: ', error);
+  }
+};
+
+const removeBotFromThread = () => async (dispatch: Dispatch, getState: () => State) => {
+  try {
+    let state: State = getState();
+    let threadId = state.thread.threadId;
+    let options = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    await fetch('/bot/' + threadId, options);
+  } catch (error) {
+    console.error('Failed to remove the bot the thread, Error: ', error);
+  }
+};
+
 // Thread Helper
 const createThreadHelper = async () => {
   try {
@@ -766,5 +801,7 @@ export {
   sendTypingNotification,
   updateTypingUsers,
   isValidThread,
-  updateThreadTopicName
+  updateThreadTopicName,
+  addBotToThread,
+  removeBotFromThread
 };

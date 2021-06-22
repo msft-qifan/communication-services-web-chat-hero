@@ -9,6 +9,7 @@ export const KOALA = '🐨';
 export const OCTOPUS = '🐙';
 export const MONKEY = '🐵';
 export const FOX = '🦊';
+export const BOT = '🤖';
 
 export const getImage = (avatar: string, isSmall: boolean) => {
   let avatarType: string = '';
@@ -30,6 +31,9 @@ export const getImage = (avatar: string, isSmall: boolean) => {
       break;
     case FOX:
       avatarType = 'fox';
+      break;
+    case BOT:
+      avatarType = 'bot';
       break;
   }
 

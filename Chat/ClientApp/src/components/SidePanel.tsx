@@ -22,6 +22,7 @@ import {
 } from './styles/SidePanel.styles';
 import { SidePanelDispatchProps, SidePanelProps } from '../containers/SidePanel';
 import { CommunicationUserIdentifier } from '@azure/communication-common';
+import BotManagement from '../containers/BotManagement';
 
 export enum SidePanelTypes {
   None = 'none',
@@ -90,6 +91,8 @@ export default (props: SidePanelProps & SidePanelDispatchProps & ChatSidePanePro
             })}
           </FocusZone>
         </StackItem>
+        {/* Bot Management */}
+        <BotManagement />
         {/* Invite link footer */}
         <InviteFooter />
       </Stack>
