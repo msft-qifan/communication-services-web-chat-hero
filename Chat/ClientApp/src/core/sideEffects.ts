@@ -17,6 +17,7 @@ import { User } from './reducers/ContosoClientReducers';
 import { State } from './reducers/index';
 import { ClientChatMessage } from './reducers/MessagesReducer';
 import {
+  BOT,
   compareMessages,
   convertToClientChatMessage,
   createNewClientChatMessage,
